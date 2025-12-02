@@ -3,6 +3,10 @@
 - [Launch Frontend UI](#frontend-experience-recommended)
 - [How to setup environment](#environment-setup)
 - [How to launch/use assistants](#how-to-run-and-use-assistants)
+  - [Code Review Assistant](#code-review-assistant)
+  - [HR Assistant](#hr-assistant)
+  - [Search Assistant](#search-assistant)
+  - [Study Assistant](#study-assistant)
 - [Langchain Notes](#langchain-notes)
 - [ReAct Notes](#react-architecture)
 - [RAG Notes](#rag-notes)
@@ -70,7 +74,59 @@ Create a `.env` file at the project root with the following properties:
 
 ## How to run and use assistants
 
-### HR Assitant
+### Code Review Assistant
+
+An intelligent AI-powered code review assistant that understands natural language queries and uses LLM-driven tool selection to provide comprehensive code analysis.
+
+**Key Features:**
+- Natural language interface: Ask questions like "Can you review this code for security issues?" or "What are the best practices I should follow?"
+- LLM-powered tool selection: The assistant intelligently chooses which analysis tools to run based on your query
+- Comprehensive analysis tools:
+  - AST-based static analysis for code structure, type hints, and docstrings
+  - PEP 8 style compliance checking
+  - Cyclomatic complexity and nesting depth analysis
+  - Security vulnerability detection
+  - Python best practices and idiomatic suggestions
+  - Documentation search recommendations
+- Streamlit UI for interactive code reviews
+- Prioritized, actionable feedback with severity scoring
+
+**CLI Usage:**
+```bash
+pip install -e .
+python -m assistants.code_review_assistant.main
+```
+
+**Streamlit UI:**
+Access the interactive code review page through the frontend:
+```bash
+streamlit run frontend/_🙋🏽<200d>♂️_welcome.py
+```
+Navigate to the Code Review page for a visual interface with:
+- Code input area
+- Natural language query box
+- Quick action buttons (Comprehensive Review, Security Check, Best Practices, Complexity Analysis)
+- Grouped issues by severity (High, Medium, Low)
+- Actionable suggestions and recommendations
+
+**Example Queries:**
+- "Can you give me a comprehensive code review?"
+- "Check this code for security vulnerabilities"
+- "Are there any performance issues or high complexity?"
+- "Does this follow Python best practices?"
+- "Help me understand what documentation I should read for this"
+
+**How it Works:**
+Unlike traditional rule-based code analyzers, this assistant uses an LLM as a central reasoning agent that:
+1. Understands your natural language question
+2. Selects appropriate analysis tools based on context
+3. Runs only the relevant tools (not everything for every query)
+4. Synthesizes results into clear, prioritized feedback
+5. Provides actionable suggestions with explanations
+
+This approach makes it more intelligent and context-aware than simple static analysis tools.
+
+### HR Assistant
 
 _a basic HR assistant, for now - it can:_
 - apply for time-off requests for `"nimo@ibm.com"`
